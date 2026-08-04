@@ -70,11 +70,27 @@ npm run build
 
 ## Screenshots
 
-| Main View |
-| --------- |
-| ![Main View](./screenshots/main-view.png) |
+### Main View
 
-> **Note:** Screenshot assets are not yet included. Add screenshots to the `screenshots/` directory and update the paths above once available.
+![Main View](./screenshots/main-view.png)
+
+### Adding a New Task
+
+![New Task](./screenshots/with-new-task.png)
+
+### Completing a Task
+
+![Complete Task](./screenshots/complete-task.png)
+
+### Filtering Completed Tasks
+
+![Filter Completed](./screenshots/filter-completed.png)
+
+### Mobile View
+
+![Mobile View](./screenshots/mobile-view.png)
+
+> Screenshots are generated using Playwright. To regenerate, run `node scripts/screenshot.mjs` while the dev server is running.
 
 ## Future Improvements
 
