@@ -43,8 +43,6 @@ ToDo App with Local Storage/
 │   │   └── TaskItem.vue
 │   ├── App.vue
 │   └── main.js
-├── scripts/
-│   └── screenshot.mjs
 ├── screenshots/
 ├── .gitignore
 ├── index.html
@@ -116,8 +114,6 @@ npm run build
 ### Mobile View
 
 ![Mobile View](./screenshots/mobile-view.png)
-
-> Screenshots are generated using Playwright. To regenerate, run `node scripts/screenshot.mjs` while the dev server is running.
 
 ## Future Improvements
 
