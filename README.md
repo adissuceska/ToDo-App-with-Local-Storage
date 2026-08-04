@@ -28,6 +28,33 @@ This application allows users to manage their daily tasks with a clean, intuitiv
 | Dev Tools        | Vue DevTools |
 | Storage          | Browser Local Storage |
 
+## Project Structure
+
+```text
+ToDo App with Local Storage/
+├── public/
+│   └── favicon.ico
+├── src/
+│   ├── assets/
+│   │   ├── base.css
+│   │   ├── logo.svg
+│   │   └── main.css
+│   ├── components/
+│   │   └── TaskItem.vue
+│   ├── App.vue
+│   └── main.js
+├── scripts/
+│   └── screenshot.mjs
+├── screenshots/
+├── .gitignore
+├── index.html
+├── jsconfig.json
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
+```
+
 ## Installation
 
 ### Prerequisites
