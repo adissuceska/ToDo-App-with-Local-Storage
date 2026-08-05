@@ -2,6 +2,8 @@
 
 A lightweight, responsive ToDo application built with Vue 3 and Vite. Tasks are persisted in the browser's local storage, so your todo list survives page refreshes and browser restarts — no backend required.
 
+**Live Demo:** [https://todo-app-with-local-storage-adiss.netlify.app/](https://todo-app-with-local-storage-adiss.netlify.app/)
+
 ## Project Description
 
 This application allows users to manage their daily tasks with a clean, intuitive interface. Each task can be assigned a priority level (High, Medium, or Low) and marked as completed. Users can filter tasks by status (All, Active, Completed) and priority. All data is stored client-side using the browser's `localStorage` API, making it a fully standalone, zero-dependency solution.

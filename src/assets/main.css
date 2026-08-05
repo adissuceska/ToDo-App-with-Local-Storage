@@ -34,24 +34,38 @@ body {
 .task-form__input {
   flex: 1 1 200px;
   padding: 0.6rem 0.8rem;
-  border: 1px solid #ccc;
+  border: 1px solid #d1d5db;
   border-radius: 6px;
   font-size: 1rem;
   background: #fff;
   color: #1f2937;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .task-form__input::placeholder {
   color: #9ca3af;
 }
 
+.task-form__input:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+  border-color: #4f46e5;
+}
+
 .task-form__select {
   padding: 0.6rem 0.8rem;
-  border: 1px solid #ccc;
+  border: 1px solid #d1d5db;
   border-radius: 6px;
   font-size: 1rem;
   background: #fff;
   color: #1f2937;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.task-form__select:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+  border-color: #4f46e5;
 }
 
 .task-form__add {
@@ -63,11 +77,28 @@ body {
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, opacity 0.2s, box-shadow 0.2s;
 }
 
 .task-form__add:hover {
   background: #1d4ed8;
+}
+
+.task-form__add:active {
+  background: #1e40af;
+  opacity: 0.9;
+}
+
+.task-form__add:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+}
+
+.task-form__add:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .filters {
@@ -87,11 +118,18 @@ body {
 
 .filters select {
   padding: 0.4rem 0.6rem;
-  border: 1px solid #ccc;
+  border: 1px solid #d1d5db;
   border-radius: 6px;
   font-size: 0.9rem;
   background: #fff;
   color: #1f2937;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filters select:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+  border-color: #4f46e5;
 }
 
 .summary {
@@ -100,10 +138,59 @@ body {
   margin-bottom: 1rem;
 }
 
-.empty-message {
+.empty-state {
   text-align: center;
+  padding: 2rem 1rem;
   color: #6b7280;
-  padding: 1rem;
+}
+
+.empty-state__icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.empty-state__message {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.error-state {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.error-state__message {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #6b7280;
+}
+
+.loading-state__spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid #e5e7eb;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-bottom: 0.75rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .task-list {
@@ -124,11 +211,12 @@ body {
   border-radius: 8px;
   background: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
 .task-item:hover {
   border-color: #9ca3af;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .task-item--completed {
@@ -197,8 +285,18 @@ body {
   border-radius: 6px;
   font-size: 0.85rem;
   cursor: pointer;
-  transition: background 0.2s, opacity 0.2s;
+  transition: background 0.2s, opacity 0.2s, box-shadow 0.2s;
   font-weight: 500;
+}
+
+.btn:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+}
+
+.btn:active {
+  opacity: 0.85;
 }
 
 .btn--complete {
@@ -225,7 +323,12 @@ body {
   background: #b91c1c;
 }
 
-@media (max-width: 480px) {
+.btn--delete:active {
+  background: #991b1b;
+  opacity: 0.9;
+}
+
+@media (max-width: 640px) {
   #app {
     padding: 1.25rem 1rem;
   }
@@ -270,10 +373,6 @@ body {
     font-size: 1rem;
   }
 
-  .empty-message {
-    font-size: 1rem;
-  }
-
   .task-item {
     flex-direction: column;
     align-items: flex-start;
@@ -299,5 +398,32 @@ body {
     flex: 1;
     font-size: 1rem;
     padding: 0.7rem 1rem;
+  }
+
+  .empty-state {
+    padding: 1.5rem 1rem;
+  }
+
+  .empty-state__icon {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 380px) {
+  #app {
+    padding: 1rem 0.75rem;
+  }
+
+  #app h1 {
+    font-size: 1.5rem;
+  }
+
+  .task-item__info {
+    gap: 0.5rem;
+  }
+
+  .task-item__priority {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
   }
 }
